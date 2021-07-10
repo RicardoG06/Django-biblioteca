@@ -1,0 +1,13 @@
+<!-- Realizado todo con herencia del template creada en index.html -->
+
+{% extends 'index.html' %}
+{% block titulo %}
+  Creacion de autores
+{% endblock titulo %}
+{% block body %}
+  <form method="post">
+    {% csrf_token %}  <!-- identificador para poder pasar datos posts -->
+    {{ autor_form.as_p }} <!-- variable de la vista para crear el form-->
+    <button type ="submit"">Crear</button>
+  </form>
+{% endblock body %}
