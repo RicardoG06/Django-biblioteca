@@ -8,6 +8,7 @@ class Autors(models.Model):
         apellidos = models.CharField(max_length = 220 , blank = False , null = False)
         nacionalidad = models.CharField(max_length = 100 , blank = False , null = False)
         #Mas tipos para campos -> IntegerField , JSONField , URLField , ImageField , FileField
+        estado = models.BooleanField('Estado' , default = True)
         fecha_creacion = models.DateField('Fecha de creacion' , auto_now = True , auto_now_add = False)
 
         class Meta:

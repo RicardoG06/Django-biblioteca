@@ -1,0 +1,38 @@
+<!-- Realizado todo con herencia del template creada en index.html -->
+<!--Los valores se pintan con doble corchete -->
+{% extends 'index.html' %}
+{% block titulo %}
+  Listado de autores
+{% endblock titulo %}
+{% block body %}
+    {% if autores%}
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Nombres</th>
+            <th>Apellidos</th>
+            <th>Nacionalidad</th>
+            <th>Opciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for autor in autores %}
+           <tr>
+            <td>{{ autor.id}}</td>
+            <td>{{ autor.nombre}}</td>
+            <td>{{ autor.apellidos}}</td>
+            <td>{{ autor.nacionalidad}}</td>
+            <td>
+                <a href="{% url 'libro:editar_autor' autor.id %}">Editar</a>
+                <a href="{% url 'libro:eliminar_autor' autor.id %}">Eliminar</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <h1>No existen autores registrados</h1>
+    {% endif %}
+
+{% endblock body %}
